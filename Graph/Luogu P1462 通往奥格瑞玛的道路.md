@@ -72,7 +72,7 @@
 2. 我们先建图,以Edge作为结构体,把当前边所包含两点中费用最大值塞进Edge中,随后进行二分,二分过程check的条件为从1~n, 经过属于当前f\[mid]的点,使用dijkstra最短路算法检验其血量剩余是否大于0即可.
 3. 值得注意的是,每一次二分需要重新构建子图,重新遍历图,如果当前图中有更大的f,我们就跳过他(因为求最小值),然后把费用小于等于mid的点塞进子图做最短路即可.
 ### AC Code
-```
+```cpp
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;
