@@ -1,3 +1,4 @@
+`rating = 3100`
 ## 题目描述
 
 This time you should help a team of researchers on an island in the Pacific Ocean. They research the culture of the ancient tribes that used to inhabit the island many years ago.

@@ -1,3 +1,4 @@
+`rating = 1800`
 ## 题目描述
 
 假设你是一家商店的老板。为了新一季到来之前清理库存，你决定举行一次全面大促销。
@@ -71,7 +72,7 @@
 
 
 ## Code
-```
+```cpp
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;

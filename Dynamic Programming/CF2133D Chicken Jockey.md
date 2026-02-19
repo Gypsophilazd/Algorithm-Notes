@@ -1,3 +1,4 @@
+`rating = 1900`
 ## 题意简述
 
 有一座由 $n$ 个怪物垒成的“鸡骑士”（从下到上编号 $1..n$），第 $i$ 个怪物初始生命为 $h_i$。
@@ -77,4 +78,4 @@ signed main() {
 }
 ```
 
-![[chicken jockey 1.png]]
+![[chicken jockey.png]]

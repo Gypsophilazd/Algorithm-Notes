@@ -1,3 +1,4 @@
+`rating = 1600`
 ## 题目描述
 
 Vadim wanted to understand the infinite sequence of digits that consists of the positive integers written consecutively from $1$ to infinity. That is, this sequence looks like: $$123456789101112131415 \ldots$$
