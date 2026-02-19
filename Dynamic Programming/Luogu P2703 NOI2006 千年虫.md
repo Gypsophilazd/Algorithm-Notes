@@ -6,7 +6,7 @@
 
 于是，摆在科学家面前的新问题诞生了：判断一个化石中的千年虫与理论模型的差距有多大？具体来说，就是根据一个千年虫化石的形态 $A$，找到 一个符合理论模型的形态 $B$，使得 $B$ 是最有可能在形成化石时变成形态 $A$。理论学家提出的“千年虫形态特征模型”如下（如左图所示）：躯体由头、尾、躯干、足四大部分构成。
 
-![[Note/ACM训练/Dynamic Programming/images/763d7d068a5cc8705e3847c3548647b5_MD5.webp]]
+![](images/Note/ACM训练/Dynamic Programming/images/763d7d068a5cc8705e3847c3548647b5_MD5.webp)
 
 - 头，尾用一对平行线段表示。称平行于头、尾的方向为 $x$ 方向；垂直于 $x$ 的方向为 $y$ 方向；
 
@@ -32,11 +32,11 @@
 
 倘若满足上面五条，我们仍然可以用 $(n,L_1,L_2,\dots,L_n,R_1,R_2,\dots,R_n)$ 来描述一个化石里头的千年虫的形态。其中 $L_i\le R_i$。
 
-![[Note/ACM训练/Dynamic Programming/images/7f29ca0390df8c868f68bc69bdae8a52_MD5.jpg]]
+![](images/Note/ACM训练/Dynamic Programming/images/7f29ca0390df8c868f68bc69bdae8a52_MD5.jpg)
 
 例如下图：
 
-![[Note/ACM训练/Dynamic Programming/images/b52a8debcb4269869db186db8a59e13b_MD5.jpg]]
+![](images/Note/ACM训练/Dynamic Programming/images/b52a8debcb4269869db186db8a59e13b_MD5.jpg)
 
 现在你的任务是，输入一个化石里的千年虫的描述 $A$，找一个满足理论模型的千年虫的描述 $B$，使得 $B$ 可以通过腐蚀过程得以变为 $A$，且由 $B$ 转化为 $A$ 的代价（须被腐蚀的格子数）最少。输出此最小代价。
 
@@ -77,7 +77,7 @@
 
 如图：
 
-![[Note/ACM训练/Dynamic Programming/images/509aacb702cabfb5c18aa16c149f3113_MD5.jpg]]
+![](images/Note/ACM训练/Dynamic Programming/images/509aacb702cabfb5c18aa16c149f3113_MD5.jpg)
 
 【评分方法】
 

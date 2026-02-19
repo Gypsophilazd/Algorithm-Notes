@@ -71,7 +71,7 @@ Please do not use the %lld specifier to read or write 64-bit integers in С++. I
 题意简述：一棵 n 个节点的树，边有边权。每个点可能是关键点，每次操作改变一个点是否是关键点。每次改变后求所有关键点形成的极小连通子树的边权和的两倍。
 
 先考虑求树上两点距离，设某点 $u$ 到根节点的距离为 $dis(u)$（可以很方便的使用 `dfs` 预处理），那么很直观的可以得出树上两点距离 $dist(u,v)$ 的计算方法为：$$dist(u,v)=dis(u)+dis(v) - 2dis(lca(u,v))$$
-![[Pasted image 20250909113729.png]]
+![](images/Pasted image 20250909113729.png)
 
 `lca` 可以使用重链剖分速通。
 

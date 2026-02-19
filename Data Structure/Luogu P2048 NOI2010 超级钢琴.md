@@ -49,7 +49,7 @@
 
 最优方案为：乐曲由和弦 $1,3,5$ 组成，美妙度为 $5+2+4=11$。
 
- ![[Note/ACM训练/Data Structure/images/f0527bdcde1f25ac40a3f3696a043912_MD5.webp]] 
+ ![](images/Note/ACM训练/Data Structure/images/f0527bdcde1f25ac40a3f3696a043912_MD5.webp) 
 
 所有数据满足：$-1000 \leq A_i \leq 1000$，$1 \leq L \leq R \leq n$ 且保证一定存在满足要求的乐曲。
 ## Solution

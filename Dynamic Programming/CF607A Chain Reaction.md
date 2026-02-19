@@ -112,4 +112,4 @@ signed main(){
 }
 ```
 
-![[Beacon.png]]
+![](images/Beacon.png)

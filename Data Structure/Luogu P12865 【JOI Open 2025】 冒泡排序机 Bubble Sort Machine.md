@@ -1,4 +1,4 @@
-![[Pasted image 20250819165000.png]]
+![](images/Pasted image 20250819165000.png)
 ## 题目描述
 
 JOI 君——一名算法工程师，开发了冒泡排序机。

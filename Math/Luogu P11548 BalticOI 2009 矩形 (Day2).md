@@ -43,7 +43,7 @@
 
 ## 说明/提示
 
-![[Note/ACM训练/Math/images/d4e9f4f8b76a03a3ecb1ec0e70183fbf_MD5.webp]]
+![](images/Note/ACM训练/Math/images/d4e9f4f8b76a03a3ecb1ec0e70183fbf_MD5.webp)
 
 ### 数据范围：
 

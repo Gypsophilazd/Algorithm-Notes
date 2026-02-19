@@ -1,4 +1,4 @@
-![[Pasted image 20250819165000.png]]
+![](images/Pasted image 20250819165000.png)
 ## 题目描述
 
 已经使 Madoka 有签订契约，和自己一起战斗的想法后，Mami 忽然感到自己不再是孤单一人了呢。

@@ -3,7 +3,7 @@
 
 #### 其实现需要维护一个大顶堆和一个小顶堆,以达到数据对冲的效果
 如图
-![[wgonylvh.webp]]
+![](images/wgonylvh.webp)
 ```
 priority_queue<int, vector<int>, greater<int>> pq_mi; //小顶堆
 priority_queue<int> pq_mx; //大顶堆

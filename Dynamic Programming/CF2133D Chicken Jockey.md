@@ -78,4 +78,4 @@ signed main() {
 }
 ```
 
-![[chicken jockey.png]]
+![](images/chicken jockey.png)
