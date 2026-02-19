@@ -43,7 +43,7 @@
 
 ## 说明/提示
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/x481b6hi.png)
+![[Note/ACM训练/Math/images/d4e9f4f8b76a03a3ecb1ec0e70183fbf_MD5.webp]]
 
 ### 数据范围：
 

@@ -6,7 +6,7 @@ NOIP2010 提高组 T4
 
 在一个遥远的国度，一侧是风景秀美的湖泊，另一侧则是漫无边际的沙漠。该国的行政区划十分特殊，刚好构成一个 $N$ 行 $M$ 列的矩形，如上图所示，其中每个格子都代表一座城市，每座城市都有一个海拔高度。
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/rcqfo04b.png)
+![[Note/ACM训练/Ad-Hoc Constructive Problems/images/be727a4f39ed8483e8ad2a225b3cced7_MD5.png]]
 
 
 
@@ -65,7 +65,7 @@ NOIP2010 提高组 T4
 
 **样例 2 说明**
 
-![](https://cdn.luogu.com.cn/upload/image_hosting/qoz3f0lv.png)
+![[Note/ACM训练/Ad-Hoc Constructive Problems/images/6e825ca2401f79c5e355d676f04b47d6_MD5.png]]
 
 上图中，在 $3 $ 个粗线框出的城市中建造蓄水厂，可以满足要求。以这 $3 $ 个蓄水厂为源头在干旱区中建造的输水站分别用 $3$ 种颜色标出。当然，建造方法可能不唯一。
 

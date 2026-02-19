@@ -39,7 +39,7 @@
 
 **【样例解释】**
 
- ![](https://cdn.luogu.com.cn/upload/pic/2297.png) 
+ ![[Note/ACM训练/Ad-Hoc Constructive Problems/images/097410c8daa800ba14d953e9c4e37f26_MD5.png]] 
 
 如图所示，红色段即为该函数 $f(x) = x^3 - 3 x^2 - 3x + 1$ 在区间 $[-0.9981, 0.5]$ 上的图像。
 
