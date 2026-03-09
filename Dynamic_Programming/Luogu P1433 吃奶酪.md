@@ -44,64 +44,84 @@
 
 $2022.7.13$：新增加一组 $\text{Hack}$ 数据。
 
-### Solution
+## Solution
+
 **状态压缩**的思想是用二进制来表示状态。用一个整数的二进制形式的每一个二进制位 0 或 1 表示一个状态。
 本题是一道比较基础的状压DP题目。
-状压DP的时间复杂度为 $O(n^22^n)$，通常只能通过 N≤21 的数据范围，本题数据范围为 N≤15 因此可以使用状压DP。
-#### 思路
+
+状压 DP 的时间复杂度为 $O(n^22^n)$，通常只能通过 $N≤21$ 的数据范围，本题数据范围为 $N≤15$ 因此可以使用状压 DP。
+
 坐标可能为实数，因此要用double类型存储。
-定义一个数组 Fi,j​，表示老鼠走到第 i 个奶酪，且走过的二进制状态为 j 时，最短的距离。
+定义一个数组 $dp[i][j]$，表示老鼠走到第 $i$ 个奶酪，且走过的二进制状态为 $j$ 时，最短的距离。
 
-举例来说，可以使用二进制 10100110 来表示已经走过第 2、3、6、8 个奶酪，此时 j 的值为 166。需要注意的是，第 i 个状态是从低位向高位的第i位。
+举例来说，可以使用二进制 10100110 来表示已经走过第 $2、3、6、8$ 个奶酪，此时 $j$ 的值为 $166$。需要注意的是，第 $i$ 个状态是从低位向高位的第 $i$ 位。
 
-在更新 F 数组状态时会用到两点间的距离，使用两点间距离公式计算.
+在更新状态时会用到两点间的距离，使用两点间距离公式计算。
 
-首先要将 F 数组进行初始化为极大值，可以使用`memset(F,127,sizeof(F));`来为浮点数赋极大值
+首先要将 dp 数组进行初始化为极大值，可以使用 `memset(dp, 127, sizeof(dp));` 来为浮点数赋极大值。
 
-因为到达第 i 块奶酪，且只经过过第 i 块奶酪的距离即为第i块奶酪与坐标原点的距离。因此要初始化`dp[i][(1<<(i-1))]=dis[0][i];`。
+因为到达第 $i$ 块奶酪，且只经过过第 $i$ 块奶酪的距离即为第 $i$ 块奶酪与坐标原点的距离。因此要初始化 `dp[i][(1 << (i-1))] = dis[0][i];`。
 
 接下来是三层循环，分别枚举所有可能的二进制状态、当前点所在的位置和能在当前状态下到达当前点的位置。
 
-在第二层循环中要判断一下 i 在当前二进制状态下是否已走过，如果根本没走过则不需要进行接下来的计算，直接continue就可以。
-在第三层运算中同样要判断当前点是否已走过，且当前点不与 i 点相同。
-接下来就可以转移状态了：
-设此时二进制状态为 k，终点为 i，起点为 j，可得状态转移方程：$dp[i][S] = min(dp[i][S], dp[j][S - (1 << (i - 1))] + dis[i][j])$
-其中 $dp[j][S - (1 << (i - 1))]$ 表示在j点且没走过i点的最短距离(减掉其二进制表示即可), $dis[i][j]$ 表示i到j的距离
-遍历$min(ans, dp[i][1 << (i - 1)])$ 即可
+在第二层循环中要判断一下 $i$ 在当前二进制状态下是否已走过，如果根本没走过则不需要进行接下来的计算，直接continue就可以。
 
-### AC Code
+在第三层运算中同样要判断当前点是否已走过，且当前点不与 $i$ 点相同。
+接下来就可以转移状态了：
+
+设此时二进制状态为 $S$，终点为 $i$，起点为 $j$，可得状态转移方程：注意限制（即当前城市 $i,j$ 需要包含在状态 $s$ 中。
+
+```cpp
+if(i != j && s & (1 << (i - 1)) && s & (1 << (j - 1))){
+	dp[i][S] = min(dp[i][S], dp[j][S & ~(1 << (i - 1))] + dis[i][j])
+}
+```
+
+重点来了，这里复杂的位运算表示的物理意义是，不管这一位原本是 $0$ 还是 $1$，用按位取反 `~` 构造一个“只有这一位是 $0$，其他全是 $1$”的掩码，然后用按位与 `&` 砸上去！这一位被死死地钉成 $0$，其他位保持原样。这样就不需要任何的条件判断。
+$dis[i][j]$ 表示 $i$ 到 $j$ 的距离。
+
+遍历 `ans = \min(ans, dp[i][(1 << n) - 1]);` 即可。
+
+## Code
+```cpp
 ```cpp
 #include <bits/stdc++.h>
+#define int long long
 using namespace std;
-const int N = 18;
-double x[N], y[N], dist[N][N], dp[18][1 << 18];
-double dis(double x1, double y1, double x2, double y2){
-    return sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+const int N = 16;
+double x[N], y[N], dp[N][1 << N], dis[N][N];
+double get_dis(double xi, double yi, double xj, double yj){
+    return sqrt((xi - xj) * (xi - xj) + (yi - yj) * (yi - yj));
 }
 
-int main(){
-    ios::sync_with_stdio(0), cin.tie(0);
-    int n; cin >> n;
-    memset(dp, 127, sizeof(dp));
-    double ans = dp[0][0];
-    for(int i = 1; i <= n; ++i) cin >> x[i] >> y[i];
-    x[0] = y[0] = 0;
-    for(int i = 0; i <= n; ++i){
-        for(int j = 0; j <= n; ++j) dist[i][j] = dis(x[i], y[i], x[j], y[j]);
-    }
-    dp[0][0] = 0;
-    for(int i = 1; i <= n; ++i) dp[i][1 << (i - 1)] = dist[0][i];
-    for(int S = 1; S < (1 << n); ++S){
-        for(int i = 1; i <= n; ++i){
-            if(!(S & (1 << (i - 1)))) continue;
-            for(int j = 1; j <= n; ++j){
-                if(i == j) continue;
-                if(S & (1 << (j - 1))) dp[i][S] = min(dp[i][S], dp[j][S ^ (1 << (i - 1))] + dist[i][j]);
-            }
-        }
-    }
-    for(int i = 1; i <= n; ++i) ans = min(ans, dp[i][(1 << n) - 1]);
-    cout << fixed << setprecision(2) << ans << '\n';
-    return 0;
+signed main(){
+    ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int n; cin >> n;
+    for(int i = 1; i <= n; ++i) cin >> x[i] >> y[i];
+    for(int i = 0; i < N; ++i){
+    for(int s = 0; s < (1 << n); ++s){
+        dp[i][s] = 1e9;
+    }
 }
+    for(int i = 0; i <= n; ++i){
+        for(int j = 0; j <= n; ++j){
+            dis[i][j] = get_dis(x[i], y[i], x[j], y[j]);
+        }
+    }
+    for(int i = 1; i <= n; ++i) dp[i][1 << (i - 1)] = dis[0][i];
+    for(int s = 1; s < (1 << n); ++s){
+        for(int i = 1; i <= n; ++i){
+            for(int j = 1; j <= n; ++j){
+                if(i == j) continue;
+                if (!(s & (1 << (i - 1))) || !(s & (1 << (j - 1)))) continue;
+                dp[i][s] = min(dp[i][s], dp[j][s & ~(1 << (i - 1))] + dis[i][j]);
+            }
+        }
+    }
+    double ans = 10000000.0;
+    for(int i = 1; i <= n; ++i) ans = min(dp[i][(1 << n) - 1], ans);
+    cout << fixed << setprecision(2) << ans << endl;
+    return 0;
+}
+```
 ```
